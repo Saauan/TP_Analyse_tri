@@ -106,4 +106,4 @@ if __name__ == '__main__':
                                                           c_select[t],
                                                           c_insert[t]))
 
-os.system('gnuplot --persist analyse_tris.gplot')
+    os.system('gnuplot --persist analyse_tris.gplot')
