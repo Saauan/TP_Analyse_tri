@@ -81,6 +81,9 @@ def analyser_tri(tri, n, t):
     return res / n
 
 def fausse(l, comp):
+    """
+    Fausse fonction pour faire passer le sorted dans l'analyse de tri
+    """
     return sorted(l, key=cmp_to_key(comp))  
 
 if __name__ == '__main__':
