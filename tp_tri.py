@@ -32,13 +32,22 @@ def analyse_tri_temps(tri, n, t):
         tri(l)
 
 temps_select = []
-for taille in range(1, TAILLE_MAX+1):
-    temps = timeit.timeit(stmt='tris.tri_select(liste_alea(taille))',
-                          setup="import tris; from tp_tri import liste_alea, taille; from random import shuffle",
-                          number=5000)
-    temps_select.append(temps)
-print("test")
-print(temps_select)
+print("test1")
+with open("temps_tri_selec.csv", "w", encoding="utf-8") as canal_selec:
+    print("test2")
+    canal_selec.write('taille;"tri_selection"\n')
+    for taille in range(1, TAILLE_MAX+1):
+        temps = timeit.timeit(stmt='tris.tri_select(liste_alea(taille))',
+                              setup="import tris; from tp_tri import liste_alea, taille; from random import shuffle",
+                              number=50)
+        temps_select.append(temps)
+        canal_selec.write("{:3d} ; {:8f}\n".format(taille,temps))
+    print("test3")
+
+##print(temps_select)
+print(sum(temps_select))
+os.system('gnuplot --persist temps_tri_selec.gplot')
+
 
 
 
