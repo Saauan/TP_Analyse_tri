@@ -1,16 +1,14 @@
-# Pour construire une liste des entiers de 0 à n-1: [i for i in range(n)]
 from random import shuffle
 import os
 import timeit
 import tris
 
 TAILLE_MAX = 100 # Taille maximale des listes lors du timing des tris
-NUMBER_ITERATIONS = 500 # Nombre d'itérations des timeit.timeit
+NUMBER_ITERATIONS = 500 # Nombre d'iterations des timeit.timeit
 
 def liste_alea(n):
     """
-    Renvoie une liste aléatoirement mélangée qui contient tous les entiers de 0 à `n`-1
-    
+    Renvoie une liste aleatoirement melangee qui contient tous les entiers de 0 à `n`-1
     :param n: (int) the length of the list
     :return: (list) a list containing all integer from 0 to n-1 without any particular order
     :UC: n is positive
@@ -53,7 +51,7 @@ if __name__ == "__main__":
         
     # Writing the times recorded in temps_tri_selec.csv
     with open("temps_tri_selec.csv", "w", encoding="utf-8") as canal_selec:
-        canal_selec.write('taille;"tri_selection"\n')
+        canal_selec.write('taille ; "tri selection"\n')
         for taille, temps in enumerate(temps_select):
             canal_selec.write("{:3d} ; {:8f}\n".format(taille,temps))
     print("time tri par selection:", sum(temps_select)) # DEBUG
