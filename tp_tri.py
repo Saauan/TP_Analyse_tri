@@ -32,7 +32,10 @@ def affiche_n():
     liste_n = [i for i in range(101)]
     for i in liste_n:
         print("{:4d};{:5d}".format(i, (i*(i-1))//2))
-        
+
+# Lors de la fermeture du traitement de texte, la fonction renvoie 0
+#Lors de l'ajout de l'instruction dans analyse_tris.py, on constate qu'une fenêtre gnuplot s'ouvre
+# Au vu des courbes on peut déduire que la méthode sort est la plus rapide devant l'insertion et la selection
         
 if __name__ == "__main__":
     import doctest
@@ -54,7 +57,7 @@ if __name__ == "__main__":
         canal_selec.write('taille ; "tri selection"\n')
         for taille, temps in enumerate(temps_select):
             canal_selec.write("{:3d} ; {:8f}\n".format(taille,temps))
-    print("time tri par selection:", sum(temps_select)) # DEBUG
+    print(sum(temps_select)) # DEBUG
     os.system('gnuplot --persist temps_tri_selec.gplot') # Displays the graph of the times recorded over the lengths of the lists
     
     # TRI PAR INSERTION
